@@ -1,0 +1,398 @@
+/* Basic Reset & General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif; /* Choose a suitable font */
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: #5b8c85; /* Example accent color */
+}
+
+a:hover {
+    color: #3a6b64;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.section-padding {
+    padding: 60px 0;
+}
+
+.bg-light {
+    background-color: #fff;
+}
+.bg-dark {
+    background-color: #333;
+}
+.bg-accent {
+    background-color: #e0f2f1; /* Light teal accent */
+    color: #004d40;
+}
+
+.text-center {
+    text-align: center;
+}
+.text-light p, .text-light h2 {
+    color: #f4f4f4;
+}
+
+
+/* Header & Navigation */
+header {
+    background-color: #fff;
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+}
+
+.main-nav ul li {
+    margin-left: 25px;
+}
+
+.main-nav ul li a {
+    color: #333;
+    font-weight: 500;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.main-nav ul li a:hover, .main-nav ul li a.active {
+    color: #5b8c85; /* Accent color */
+    border-bottom: 2px solid #5b8c85;
+}
+
+.nav-toggle {
+    display: none; /* Hidden by default, shown on mobile */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    left: 0;
+    transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease;
+}
+
+.hamburger::before {
+    top: -8px;
+}
+
+.hamburger::after {
+    bottom: -8px;
+}
+
+/* Mobile Nav Open State */
+.nav-open .hamburger {
+    background-color: transparent;
+}
+.nav-open .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+.nav-open .hamburger::after {
+    transform: rotate(-45deg);
+    bottom: 0;
+}
+
+
+/* Hero Section */
+#hero {
+    background: url('https://via.placeholder.com/1920x1080.png?text=Beautiful+Wedding+Hero+Image') no-repeat center center/cover; /* Replace with your image */
+    color: #fff;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative; /* For overlay */
+}
+
+#hero::before { /* Optional overlay for better text readability */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.hero-content {
+    position: relative; /* To sit on top of overlay */
+    z-index: 1;
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem; /* Larger for hero */
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #5b8c85; /* Accent color */
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 5px;
+    border: none;
+}
+
+.btn:hover {
+    background-color: #4a7c74;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background-color: #5b8c85; /* Primary accent */
+}
+.btn-primary:hover {
+    background-color: #4a7c74;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid #fff;
+    color: #fff;
+}
+.btn-secondary:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.portfolio-item {
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+.portfolio-item:hover {
+    transform: translateY(-5px);
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 250px; /* Adjust as needed */
+    object-fit: cover;
+}
+
+.portfolio-item h3 {
+    font-size: 1.2rem;
+    padding: 15px;
+    text-align: center;
+    color: #333;
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.service-item {
+    padding: 20px;
+}
+.service-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 15px auto;
+    /* For actual icons, you might use SVG or font icons */
+}
+
+/* Testimonial */
+#testimonial blockquote {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.3rem;
+    font-style: italic;
+}
+#testimonial cite {
+    display: block;
+    margin-top: 1rem;
+    font-style: normal;
+    font-weight: bold;
+}
+
+/* About Teaser */
+.about-teaser {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+}
+.about-photo {
+    flex: 1 1 300px; /* Flex basis of 300px */
+    max-width: 350px;
+    border-radius: 50%; /* Circular photo */
+    margin: 0 auto; /* Center if it wraps */
+}
+.about-text {
+    flex: 2 1 400px; /* Takes more space */
+}
+
+/* Footer */
+footer {
+    background-color: #2c2c2c;
+    color: #ccc;
+    text-align: center;
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.footer-nav a, .social-links a {
+    color: #ccc;
+    margin: 0 10px;
+}
+.footer-nav a:hover, .social-links a:hover {
+    color: #fff;
+}
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    h1 { font-size: 2.2rem; }
+    .hero-content h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+
+    .nav-toggle {
+        display: block; /* Show hamburger */
+    }
+
+    .main-nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #fff;
+        position: absolute;
+        top: 100%; /* Position below header */
+        left: 0;
+        width: 100%;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .main-nav.nav-open ul {
+        display: flex; /* Show menu when toggled */
+    }
+
+    .main-nav ul li {
+        margin: 0;
+    }
+
+    .main-nav ul li a {
+        display: block;
+        padding: 15px;
+        border-bottom: 1px solid #eee;
+    }
+    .main-nav ul li a:hover, .main-nav ul li a.active {
+        border-bottom: 1px solid #eee; /* Remove underline on mobile */
+        background-color: #f0f0f0;
+    }
+
+    .about-teaser {
+        flex-direction: column;
+        text-align: center;
+    }
+    .about-photo {
+        margin-bottom: 20px;
+    }
+}
