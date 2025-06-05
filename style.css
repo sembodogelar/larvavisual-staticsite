@@ -92,6 +92,16 @@ header .container {
     color: #333;
 }
 
+/* --- ADD YOUR LOGO IMAGE STYLES HERE --- */
+.logo img {
+    height: 50px; /* Adjust this value to your desired height */
+    width: auto;  /* This will maintain the aspect ratio */
+    display: block; /* Helps prevent extra space below the image if it's treated as inline */
+    /* If your image is still not vertically centered with nav items, you might need adjustments */
+    /* on the parent '.logo' or '.header .container' for alignment */
+}
+/* --- END OF LOGO IMAGE STYLES --- */
+
 .main-nav ul {
     list-style: none;
     display: flex;
